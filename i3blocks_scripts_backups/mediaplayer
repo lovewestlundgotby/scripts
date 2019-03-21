@@ -64,7 +64,7 @@ if ($player_arg eq '' or $player_arg =~ /cmus$/) {
     exit 0 unless $player_arg eq '';
 }
 
-my $playerStatus = qx/playerctl status/;
+my $playerStatus = qx(playerctl status);
 if ($playerStatus eq "Playing\n") {
   my $icon = "";
   push(@metadata, $icon);
