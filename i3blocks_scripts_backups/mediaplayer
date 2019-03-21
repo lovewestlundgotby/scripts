@@ -78,7 +78,8 @@ if ($playerStatus eq "Playing\n") {
 
 
 
-my $artist = qx(playerctl $player_arg metadata artist);
+# chomp removes trailing newline
+chomp(my $artist = qx(playerctl $player_arg metadata artist));
 # exit status will be nonzero when playerctl cannot find your player
 exit(0) if $?;
 push(@metadata, $artist) if $artist;
